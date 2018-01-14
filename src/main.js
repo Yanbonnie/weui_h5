@@ -59,18 +59,18 @@ Vue.prototype.setSData=function(key, value){
 
 //路由跳转之前
 router.beforeEach((to, from, next) => {
-    // document.body.scrollTop = 0;      
-    // let businessId = Vue.prototype.getSData('businessId');
-    // let thirdPartyId = Vue.prototype.getSData('thirdPartyId');
-    // if(businessId && thirdPartyId){   //存在业务id和openid
-    //     Vue.prototype.queryPresentFlowcfg(businessId,thirdPartyId,router);
-    // }else{
-    //     if(to.name != 'Apply'){
-    //         router.push({
-    //             name:'Apply',
-    //         })            
-    //     }    
-    // }
+    document.body.scrollTop = 0;      
+    let businessId = Vue.prototype.getSData('businessId');
+    let thirdPartyId = Vue.prototype.getSData('thirdPartyId');
+    if(businessId && thirdPartyId){   //存在业务id和openid
+        Vue.prototype.queryPresentFlowcfg(businessId,thirdPartyId,router);
+    }else{
+        if(to.name != 'Apply'){
+            router.push({
+                name:'Apply',
+            })            
+        }    
+    }
     
     next();
 })
