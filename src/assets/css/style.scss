@@ -209,6 +209,32 @@ header{
     }
 }
 
+.comCover{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 99;
+    .coverBox{
+        width: 90%;
+        position: absolute;
+        background: #fff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        .title{
+            text-align: center;
+            line-height: 40px;
+            height: 40px;
+            font-size: 16px;
+        }
+    }
+}
+
 
 .addressCover{
     position: fixed;
@@ -220,7 +246,7 @@ header{
     z-index: 100;
     .title{
         position: fixed;
-        bottom: 50%;
+        bottom: REM(680);
         line-height: 45px;
         height: 45px;
         background: #fff;
@@ -247,14 +273,17 @@ header{
     .address-header{
         position: fixed;
         left: 0;
-        top: 50%;
+        bottom: REM(600);
+        // height: REM(45);
+        line-height: REM(45);
         width: 100%;
         border-bottom: 1px #e5e5e5 solid;
         background:#fff;
+        z-index: 2;
         ul{
             li{
                 display: inline-block;
-                padding: 10px 10px 7px;
+                padding:REM(10) REM(10) REM(7);
                 color: #000 !important;
                 &.active{
                     border-bottom:3px #e83535 solid !important;
@@ -265,13 +294,23 @@ header{
         }
     }
     .address-container ul{
-        padding-top: 50px;
+        // height: calc(100%-50px);
         li{
             padding: 8px 10px;
             border: 0 !important;
             color: #000;
         }  
     } 
+    //新增
+    .address-container{
+        position: absolute;
+        width: 100%;
+        height: REM(600);
+        bottom: 0;
+        overflow: auto;
+        left: 0;
+        background: #fff; 
+    }
 }
 
 .comButtonBox{
@@ -575,23 +614,401 @@ header{
     }
 }
 
-.text{
-    z-index: 1000;
-    width: 100%;
-    position:fixed;
-    top: 0;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    color: #fff;
-    text-align: center;
-    padding-top:50px;
-    a{
-        font-size: REM(40);
-        color: #fff;
-
+/******************地址管理******************/
+.addressPage{
+    width:90%;
+    margin: 0 auto;
+    padding: REM(25) 0;
+    .item{
+        padding: 10px 0;
+        border: 1px $BORDER solid;
+        margin-bottom: REM(25);
+        position: relative;
+        color: #323232;
+        label{
+            display: block;
+            width: REM(120);
+            height: REM(40);
+            line-height: REM(40);
+            font-size: REM(24);
+            padding-left: 10px;
+        }
+        input,span{
+            position: relative;
+            @include flexBox;
+            display: block;
+            font-size: REM(24);
+            // height: REM(40);
+            line-height: REM(40);
+            border: 0;            
+        }
+        span{
+            padding-right: 50px;
+        }
+        b{
+            position: absolute;
+            height: REM(40);
+            line-height: REM(40);
+            right: 0;
+            top: 0;
+            padding-right: 25px;
+            font-weight: normal;
+            i{
+                position: absolute;
+                right: 10px;
+                top: REM(14);
+                width: REM(10);
+                height: REM(10);
+                transform: rotate(-45deg);
+                border-right: 1px #323232 solid;
+                border-bottom: 1px #323232 solid;
+                display: block;
+            }
+        }
     }
-    p{
-        margin-top:REM(100);
+    .comButtonBox{
+        span{
+            &:nth-child(1){
+                padding: 0 5% 0 0;
+            }
+        }
+    }
+    //地址管理
+    .addressList{
+        li{
+            border: 1px $BORDER solid;
+            margin-bottom: REM(30);
+            .mint-cell-wrapper{
+                background: none;
+                white-space:normal;
+            }
+            .mint-cell:last-child{
+                background: none;
+            }
+            .mint-cell-wrapper{
+                padding: 10px;
+                line-height: 22px;
+
+            }
+            .mint-cell-title{
+                .context{
+                    padding-right: 90px;
+                    position: relative;
+                    p,h3,span{
+                        font-size: 12px;
+                    }
+                    span{
+                        position: absolute;
+                        height: 100%;
+                        right: 0;
+                        top: 50%;
+                        height: 22px;
+                        line-height: 22px;
+                        margin-top: -11px;
+                        &.gray{
+                            color: gray;
+                        }
+                    }
+                }
+            }
+            .mint-cell-right{
+                right: -1px;
+                background: red;
+                .mint-cell-swipe-button {
+                    height: 100%;
+                    display: inline-block;
+                    padding: 0 15px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;}
+            }
+        }
     }
 }
 
+/*证书申请列表弹框*/
+.certificateList{
+    .title{
+        background: #eeeeee;
+    }
+    ul{
+        li{
+            padding: 18px 0;
+            border-bottom: 1px $BORDER solid;
+            div{
+                padding-right: 80px;
+                padding-left: 20px;
+                position: relative;
+                line-height: 22px;
+                span{
+                    font-size: 14px;
+                    &.icon{
+                        height: 22px;
+                        line-height: 22px;
+                        display: inline-block;
+                        padding: 0 5px;
+                        background: #e83535;
+                        color: #fff;
+                        border-radius: 4px; 
+                        margin-left: 5px;
+                    }
+                }
+            }
+            p{
+                padding-left: 20px;
+                color: #acacac;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+/*business*/
+/*我的申请（业务列表）*/
+.business{
+    background: #eeeeee;
+    padding-top: REM(30);
+    height: 100%;
+    .businessList{
+        li{
+            background: #fff;
+            display: flex;
+            // justify-content: center;
+            // align-content: center;
+            align-items: center;
+            margin-bottom: REM(30);
+            .sideLeft{
+                width: 100px;
+                // height: 100px;                
+            }
+            .sideRight{
+                @include flexBox;
+
+                h3{
+                    padding-bottom: 5px;
+                }
+                p{
+                    font-size: REM(22);
+                    color: #acacac;
+                    padding-right: REM(90);
+                    position: relative;
+                    span{
+                        position: absolute;
+                        right: 5px;
+                        background: #e83535;
+                        color: #fff;
+                        border-radius: 4px;
+                        line-height: REM(30);
+                        top: 0;
+                        padding: 0 5px;
+                        font-size:REM(22);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.busDetail{
+    .info{
+        background: $ACTIVECOLOR;
+        color: #fff;
+        .txt{
+            padding-left: 20px;
+            line-height: REM(50);
+        }
+        .center{   
+            padding: REM(40) 0 REM(10); 
+            text-align: center;
+            p{
+                line-height: REM(50);
+                &.last{
+                    color: #f99c9c;
+                }
+            }
+            h3{
+                font-size: REM(32);
+                padding-bottom: REM(40);
+            }
+            h4{
+                font-size: REM(28);
+                padding-bottom: REM(30);
+            }
+        }
+    }
+    .detailBox{
+        ul.progress{
+            padding-top: REM(30);
+            &.nav2{
+                li{
+                    width: 50%;
+                }
+            }
+            &.nav3{
+                li{
+                    width: 33.3%;
+                }
+            }
+            &.nav4{
+                li{
+                    width: 25%;
+                }
+            }
+            &.nav5{
+                li{
+                    width: 20%;
+                }
+            }
+            &.nav6{
+                li{
+                    width: 16.6%;
+                }
+            }
+            li{
+                float: left;
+                p{
+                    position: relative;    
+                    height: REM(50);
+                    // background: rgba(0,0,0,0.5);            
+                    span{
+                        &.left{
+                            width: 50%;
+                            float: left;
+                            height: 2px;
+                            background:#d2d2d2;
+                            top: 50%;
+                            margin-top:-1px;
+                            position: relative;
+                        }
+                        &.center{
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            width: 10px;
+                            height: 10px;
+                            display: block;
+                            background:#f0f2e3;
+                            margin-left:-6px;
+                            margin-top: -6px;
+                            border-radius: 100%;
+                            border: 1px #ffb2b2 solid;
+                            z-index: 7;
+                            b{
+                                position: absolute;
+                                width: 100%;
+                                line-height:30px;
+                                text-align: center;
+                                font-weight: normal;
+                                color: #d2d2d2;
+                                font-size: 20px;
+                            }
+                        }
+                        &.right{
+                            width: 50%;
+                            top: 50%;
+                            float: left;
+                            height: 2px;
+                            background:#d2d2d2;
+                            margin-top: -1px;
+                            position: relative;
+                            z-index: 1;
+                        }
+                    }
+                    &.active{
+                        span{
+                            &.left{
+                                background: $ACTIVECOLOR;
+                            }
+                            &.center{
+                                background: $ACTIVECOLOR;
+                                border: 1px $ACTIVECOLOR;
+                                width: 15px;
+                                height: 15px;
+                                margin-left: -8.5px;
+                                margin-top: -8.5px;
+                            }
+                            &.right{
+                                background: $ACTIVECOLOR;
+                                border-top-right-radius: REM(10);
+                                border-bottom-right-radius: REM(10);
+                                left: REM(5);
+                                z-index: 6;
+                            }
+                        }
+                    }
+                    &.ok{
+                        span{
+                            &.left{
+                                background: $ACTIVECOLOR;
+                            }
+                            &.center{
+                                background: $WHITE;
+                                border: 2px $ACTIVECOLOR solid;
+                                b{
+                                    background:url($URL+'ok.png') center center no-repeat;
+                                    background-size: 20px 20px;
+                                    font-size: 0;
+                                }
+                            }
+                            &.right{
+                                background: $ACTIVECOLOR;
+                            }
+                        }
+                    }
+                }
+                a{
+                    text-align: center;
+                    display: block;
+                    color: $FONTCOLOR;
+                    line-height: REM(50);
+                    font-size: REM(24);
+                }
+                &:first-child{
+                    span{
+                        &.left{
+                            opacity: 0;
+                        }
+                    }
+                }
+                &:last-child{
+                    span{
+                        &.right{
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .btnBox{
+            width: 90%;
+            margin: 0 auto;
+            .continue{
+                width: REM(100);
+                height: REM(45);
+                line-height: REM(45);
+                background: $ACTIVECOLOR;
+                color: #fff;
+                text-align: center;
+                margin: REM(20) 0 REM(80) 0;
+                display: block;
+                border-radius: 4px;
+                font-size: REM(24);
+            }
+            a{
+                width: 100%;
+                display: block;
+                height: REM(80);
+                line-height: REM(80);
+                text-align: center;
+                background: #eeeeee;
+                margin-bottom: REM(30);
+                font-size: REM(28);
+                color: #acacac;
+                &.active{
+                    background: $ACTIVECOLOR;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

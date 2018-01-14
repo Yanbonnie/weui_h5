@@ -337,7 +337,7 @@
         mounted(){
             this.businessId = this.getSData('businessId');
             this.thirdPartyId = this.getSData('thirdPartyId');
-            this.restoreCharge();
+            // this.restoreCharge();
         }
     }
 </script>
