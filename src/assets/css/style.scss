@@ -24,12 +24,12 @@ input::-webkit-input-placeholder { /* WebKit browsers */
     line-height: REM(45);
 }
 
-.box{    
+.box{
     display: -webkit-flex;  /* 新版本语法: Chrome 21+ */
     display: flex;          /* 新版本语法: Opera 12.1, Firefox 22+ */
     display: -webkit-box;   /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
     display: -moz-box;      /* 老版本语法: Firefox (buggy) */
-    display: -ms-flexbox;   /* 混合版本语法: IE 10 */   
+    display: -ms-flexbox;   /* 混合版本语法: IE 10 */
 }
 
 .right_icon{
@@ -72,9 +72,9 @@ header{
         li{
             float: left;
             p{
-                position: relative;    
+                position: relative;
                 height: REM(50);
-                // background: rgba(0,0,0,0.5);            
+                // background: rgba(0,0,0,0.5);
                 span{
                     &.left{
                         width: 50%;
@@ -299,8 +299,8 @@ header{
             padding: 8px 10px;
             border: 0 !important;
             color: #000;
-        }  
-    } 
+        }
+    }
     //新增
     .address-container{
         position: absolute;
@@ -309,7 +309,7 @@ header{
         bottom: 0;
         overflow: auto;
         left: 0;
-        background: #fff; 
+        background: #fff;
     }
 }
 
@@ -382,7 +382,7 @@ header{
                 &:nth-child(2){
                     justify-content: flex-end;
                     padding-right:15px;
-                    color: #acacac; 
+                    color: #acacac;
                 }
             }
         }
@@ -489,7 +489,7 @@ header{
                 &:nth-child(2){
                     justify-content: flex-end;
                     padding-right:15px;
-                    color: #acacac; 
+                    color: #acacac;
                 }
             }
         }
@@ -520,7 +520,7 @@ header{
             &:nth-child(2){
                 justify-content: flex-end;
                 padding-right:15px;
-                color: #acacac; 
+                color: #acacac;
             }
         }
     }
@@ -640,7 +640,7 @@ header{
             font-size: REM(24);
             // height: REM(40);
             line-height: REM(40);
-            border: 0;            
+            border: 0;
         }
         span{
             padding-right: 50px;
@@ -749,7 +749,7 @@ header{
                         padding: 0 5px;
                         background: #e83535;
                         color: #fff;
-                        border-radius: 4px; 
+                        border-radius: 4px;
                         margin-left: 5px;
                     }
                 }
@@ -779,7 +779,10 @@ header{
             margin-bottom: REM(30);
             .sideLeft{
                 width: 100px;
-                // height: 100px;                
+                // height: 100px;
+                canvas{
+                    zoom: 0.5;
+                }
             }
             .sideRight{
                 @include flexBox;
@@ -817,8 +820,8 @@ header{
             padding-left: 20px;
             line-height: REM(50);
         }
-        .center{   
-            padding: REM(40) 0 REM(10); 
+        .center{
+            padding: REM(40) 0 REM(10);
             text-align: center;
             p{
                 line-height: REM(50);
@@ -867,9 +870,9 @@ header{
             li{
                 float: left;
                 p{
-                    position: relative;    
+                    position: relative;
                     height: REM(50);
-                    // background: rgba(0,0,0,0.5);            
+                    // background: rgba(0,0,0,0.5);
                     span{
                         &.left{
                             width: 50%;
